@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Bolão Oscar 2026 – Resultados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --preto: #000000;
+    --branco: #ffffff;
+    --verde: #d3fd53;
+    --roxo: #e645fb;
+    --ouro: #f5c842;
+    --cinza: #888;
+  }
+  body {
+    background: #111;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  .page-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #555;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-left: calc(50% - 540px);
+  }
+
+  /* ── CARD / PAGE ── */
+  .card {
+    width: 1080px;
+    height: 1080px;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* ── HEADER ── */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 40px 22px;
+    border-bottom: 1px solid #1a1a1a;
+    flex-shrink: 0;
+  }
+  .card-header img { height: 28px; }
+  .card-header-right { text-align: right; }
+  .card-header-right h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--verde);
+    letter-spacing: -0.3px;
+  }
+  .card-header-right p { font-size: 11px; color: #444; margin-top: 2px; }
+
+  /* ── SECTION LABEL ── */
+  .slabel {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 14px;
+  }
+
+  /* ═══════════════════════════════
+     PAGE 1 – RESULTADOS
+  ═══════════════════════════════ */
+
+  .p1-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 40px 28px;
+    gap: 28px;
+  }
+
+  /* PODIUM */
+  .podium-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .p-place {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p-photo-ring {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .p-photo {
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border: 3px solid transparent;
+  }
+  .p-place-1 .p-photo { width: 148px; height: 148px; border-color: var(--verde); }
+  .p-place-2 .p-photo { width: 120px; height: 120px; border-color: var(--roxo); }
+  .p-place-3 .p-photo { width: 110px; height: 110px; border-color: var(--ouro); }
+
+  .p-initials {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    border: 3px solid;
+  }
+  .p-place-3 .p-initials {
+    width: 110px; height: 110px;
+    font-size: 32px;
+    color: var(--ouro);
+    border-color: var(--ouro);
+    background: #0f0d00;
+  }
+  .p-place-3 .p-photo { border-color: var(--ouro); }
+
+  .p-badge {
+    position: absolute;
+    bottom: 2px; right: 2px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #000;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    border: 2px solid;
+  }
+  .p-place-1 .p-badge { border-color: var(--verde); color: var(--verde); }
+  .p-place-2 .p-badge { border-color: var(--roxo); color: var(--roxo); }
+  .p-place-3 .p-badge { border-color: var(--ouro); color: var(--ouro); }
+
+  .p-info { text-align: center; }
+  .p-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .p-place-1 .p-name { font-size: 17px; color: #fff; }
+  .p-place-2 .p-name { font-size: 14px; color: #ccc; }
+  .p-place-3 .p-name { font-size: 14px; color: #ccc; }
+
+  .p-pts {
+    font-size: 12px;
+    color: #555;
+    margin-top: 3px;
+  }
+  .p-pts span {
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .p-place-1 .p-pts span { color: var(--verde); }
+  .p-place-2 .p-pts span { color: var(--roxo); }
+  .p-place-3 .p-pts span { color: var(--ouro); }
+
+  .p-prize {
+    margin-top: 6px;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .p-place-1 .p-prize { color: var(--verde); border-color: #d3fd5350; background: #0b0f04; }
+  .p-place-2 .p-prize { color: var(--roxo); border-color: #e645fb50; background: #0e0013; }
+  .p-place-3 .p-prize { color: #555; border-color: #333; background: #0a0a0a; font-style: italic; }
+
+  .p-block {
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    margin-top: 12px;
+    border: 1px solid;
+    border-bottom: none;
+  }
+  .p-place-1 .p-block { height: 72px; background: #0b0f04; border-color: #d3fd5325; min-width: 200px; }
+  .p-place-2 .p-block { height: 50px; background: #0e0013; border-color: #e645fb25; min-width: 170px; }
+  .p-place-3 .p-block { height: 34px; background: #0c0b00; border-color: #f5c84225; min-width: 160px; }
+
+  .tie-note {
+    text-align: center;
+    font-size: 11px;
+    color: #333;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* OSCAR WINNERS */
+  .oscar-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .oc {
+    background: #0a0a0a;
+    border: 1px solid #1c1c1c;
+    border-radius: 10px;
+    padding: 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-top: 2px solid var(--verde);
+  }
+  .oc-cat {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555;
+  }
+  .oc-winner {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+  }
+  .oc:first-child .oc-winner { font-size: 17px; color: var(--verde); }
+  .oc-movie {
+    font-size: 10px;
+    color: #444;
+    font-style: italic;
+    margin-top: 1px;
+  }
+  .oc-icon { font-size: 18px; margin-bottom: 2px; }
+  .oc:first-child .oc-icon { font-size: 22px; }
+
+  /* FOOTER */
+  .card-footer {
+    padding: 14px 40px;
+    border-top: 1px solid #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .card-footer p { font-size: 11px; color: #333; }
+
+  /* ═══════════════════════════════
+     PAGE 2 – RANKING
+  ═══════════════════════════════ */
+
+  .p2-body {
+    flex: 1;
+    padding: 20px 40px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  thead th.c { text-align: center; }
+  tbody td {
+    padding: 7px 10px;
+    font-size: 12px;
+    border-bottom: 1px solid #0e0e0e;
+    color: #ccc;
+    vertical-align: middle;
+  }
+  tbody td.c { text-align: center; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .pos {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    background: #111;
+    color: #444;
+  }
+  .pos.g { background: #0b0f04; color: var(--verde); border: 1px solid #d3fd5335; }
+  .pos.s { background: #0e0013; color: var(--roxo); border: 1px solid #e645fb35; }
+  .pos.b { background: #0c0a00; color: var(--ouro); border: 1px solid #f5c84235; }
+
+  .pts {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    background: #111;
+    color: #555;
+  }
+  .pts.g { background: #0b0f04; color: var(--verde); }
+  .pts.s { background: #0e0013; color: var(--roxo); }
+  .pts.b { background: #0c0a00; color: var(--ouro); }
+
+  .ck { color: var(--verde); font-size: 13px; }
+  .xx { color: #222; font-size: 13px; }
+
+  .nm { font-weight: 600; color: #ddd; }
+  .nm.g { color: var(--verde); }
+  .nm.s { color: var(--roxo); }
+  .nm.b { color: var(--ouro); }
+
+  .legend-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0 16px;
+    flex-shrink: 0;
+  }
+  .legend-row p { font-size: 10px; color: #333; }
+
+  /* ═══════════════════════════════
+     PAGE 3 – PÓDIO + RANKING
+  ═══════════════════════════════ */
+  .p3-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 40px 0;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .podium-wrap-sm {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+  }
+  .p-place-1-sm .p-photo { width: 108px; height: 108px; border-color: var(--verde); }
+  .p-place-2-sm .p-photo { width: 88px;  height: 88px;  border-color: var(--roxo); }
+  .p-place-3-sm .p-photo { width: 80px;  height: 80px;  border-color: var(--ouro); }
+  .p-place-1-sm .p-badge { border-color: var(--verde); color: var(--verde); }
+  .p-place-2-sm .p-badge { border-color: var(--roxo);  color: var(--roxo); }
+  .p-place-3-sm .p-badge { border-color: var(--ouro);  color: var(--ouro); }
+  .p-place-1-sm .p-name { font-size: 14px; color: #fff; }
+  .p-place-2-sm .p-name { font-size: 12px; color: #ccc; }
+  .p-place-3-sm .p-name { font-size: 12px; color: #ccc; }
+  .p-place-1-sm .p-pts span { color: var(--verde); }
+  .p-place-2-sm .p-pts span { color: var(--roxo); }
+  .p-place-3-sm .p-pts span { color: var(--ouro); }
+  .p-place-1-sm .p-prize { color: var(--verde); border-color: #d3fd5350; background: #0b0f04; }
+  .p-place-2-sm .p-prize { color: var(--roxo);  border-color: #e645fb50; background: #0e0013; }
+  .p-place-3-sm .p-prize { color: #555; border-color: #333; background: #0a0a0a; font-style: italic; }
+  .p-place-1-sm .p-block { height: 36px; background: #0b0f04; border-color: #d3fd5325; min-width: 180px; }
+  .p-place-2-sm .p-block { height: 24px; background: #0e0013; border-color: #e645fb25; min-width: 150px; }
+  .p-place-3-sm .p-block { height: 16px; background: #0c0b00; border-color: #f5c84225; min-width: 140px; }
+
+  .p3-table tbody td {
+    padding: 3.5px 10px;
+    font-size: 11px;
+    border-bottom: 1px solid #0e0e0e;
+    color: #ccc;
+    vertical-align: middle;
+  }
+  .p3-table tbody td.c { text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PÁGINA 1 – RESULTADOS
+══════════════════════════════════════════ -->
+<div class="page-label">↓ Página 1 — captura de tela aqui</div>
+<div class="card" id="page1">
+
+  <div class="card-header">
+    <img src="KOBANA_LOGO_HOR_NEGATIVO.png" alt="Kobana">
+    <div class="card-header-right">
+      <h1>Bolão do Oscar 2026 — Resultados</h1>
+      <p>98ª Cerimônia do Academy Awards · 15 de março de 2026</p>
+    </div>
+  </div>
+
+  <div class="p1-body">
+
+    <!-- PÓDIO -->
+    <div>
+      <div class="slabel">Pódio</div>
+      <div class="podium-wrap">
+
+        <!-- 2º Lugar -->
+        <div class="p-place p-place-2">
+          <div class="p-photo-ring">
+            <img class="p-photo" src="Objetos/Elson.jpeg" alt="Elson">
+            <div class="p-badge">2</div>
+          </div>
+          <div class="p-info">
+            <div class="p-name">Elson Otake</div>
+            <div class="p-pts"><span>6</span> pts</div>
+            <div class="p-prize">🎬 R$ 105 Netflix / Cinemark</div>
+          </div>
+          <div class="p-block"></div>
+        </div>
+
+        <!-- 1º Lugar -->
+        <div class="p-place p-place-1">
+          <div class="p-photo-ring">
+            <img class="p-photo" src="Objetos/Amanda.jpeg" alt="Amanda">
+            <div class="p-badge">1</div>
+          </div>
+          <div class="p-info">
+            <div class="p-name">Amanda Grego</div>
+            <div class="p-pts"><span>6</span> pts</div>
+            <div class="p-prize">🏆 R$ 175 Netflix / Cinemark</div>
+          </div>
+          <div class="p-block"></div>
+        </div>
+
+        <!-- 3º Lugar -->
+        <div class="p-place p-place-3">
+          <div class="p-photo-ring">
+            <img class="p-photo" src="Objetos/Alan.png" alt="Alan">
+            <div class="p-badge">3</div>
+          </div>
+          <div class="p-info">
+            <div class="p-name">Alan Nascimento</div>
+            <div class="p-pts"><span>5</span> pts</div>
+            <div class="p-prize">sem premiação</div>
+          </div>
+          <div class="p-block"></div>
+        </div>
+
+      </div>
+      <p class="tie-note">* Empate em pontos e Melhor Filme — Amanda enviou a resposta antes de Elson</p>
+    </div>
+
+    <!-- VENCEDORES DO OSCAR -->
+    <div>
+      <div class="slabel">Vencedores do Oscar 2026</div>
+      <div class="oscar-grid">
+
+        <div class="oc">
+          <div class="oc-icon">🏆</div>
+          <div class="oc-cat">Melhor Filme</div>
+          <div class="oc-winner">Uma Batalha Após a Outra</div>
+          <div class="oc-movie">Paul Thomas Anderson</div>
+        </div>
+
+        <div class="oc">
+          <div class="oc-icon">🎬</div>
+          <div class="oc-cat">Melhor Direção</div>
+          <div class="oc-winner">Paul Thomas Anderson</div>
+          <div class="oc-movie">Uma Batalha Após a Outra</div>
+        </div>
+
+        <div class="oc">
+          <div class="oc-icon">🎭</div>
+          <div class="oc-cat">Melhor Ator</div>
+          <div class="oc-winner">Michael B. Jordan</div>
+          <div class="oc-movie">Pecadores</div>
+        </div>
+
+        <div class="oc">
+          <div class="oc-icon">🌟</div>
+          <div class="oc-cat">Melhor Atriz</div>
+          <div class="oc-winner">Jessie Buckley</div>
+          <div class="oc-movie">Hamnet</div>
+        </div>
+
+        <div class="oc">
+          <div class="oc-icon">🌍</div>
+          <div class="oc-cat">Internacional</div>
+          <div class="oc-winner">Valor Sentimental</div>
+          <div class="oc-movie">Noruega</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-footer">
+    <p>kobana.com.br</p>
+    <p>Melhor Filme: 2 pts · Demais: 1 pt · Apostador único: +1 pt bônus</p>
+  </div>
+
+</div><!-- /page1 -->
+
+
+<!-- ══════════════════════════════════════════
+     PÁGINA 2 – RANKING
+══════════════════════════════════════════ -->
+<div class="page-label">↓ Página 2 — captura de tela aqui</div>
+<div class="card" id="page2">
+
+  <div class="card-header">
+    <img src="KOBANA_LOGO_HOR_NEGATIVO.png" alt="Kobana">
+    <div class="card-header-right">
+      <h1>Bolão do Oscar 2026 — Ranking</h1>
+      <p>98ª Cerimônia do Academy Awards · 15 de março de 2026</p>
+    </div>
+  </div>
+
+  <div class="p2-body">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:46px" class="c">#</th>
+          <th>Nome</th>
+          <th class="c" style="width:62px">Filme</th>
+          <th class="c" style="width:62px">Direção</th>
+          <th class="c" style="width:52px">Ator</th>
+          <th class="c" style="width:52px">Atriz</th>
+          <th class="c" style="width:52px">Intl.</th>
+          <th class="c" style="width:52px">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="c"><span class="pos g">1</span></td><td><span class="nm g">Amanda Grego</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="pts g">6</span></td></tr>
+        <tr><td class="c"><span class="pos s">2</span></td><td><span class="nm s">Elson Otake</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="pts s">6</span></td></tr>
+        <tr><td class="c"><span class="pos b">3</span></td><td><span class="nm b">Alan Nascimento</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts b">5</span></td></tr>
+        <tr><td class="c"><span class="pos">4</span></td><td><span class="nm">Pedro Motta</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">4</span></td></tr>
+        <tr><td class="c"><span class="pos">5</span></td><td><span class="nm">Rodrigo Manhães</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">4</span></td></tr>
+        <tr><td class="c"><span class="pos">6</span></td><td><span class="nm">Keila</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">4</span></td></tr>
+        <tr><td class="c"><span class="pos">7</span></td><td><span class="nm">Roberto</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="pts">4</span></td></tr>
+        <tr><td class="c"><span class="pos">8</span></td><td><span class="nm">Kivanio</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">3</span></td></tr>
+        <tr><td class="c"><span class="pos">9</span></td><td><span class="nm">Gabriel Rocha</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">3</span></td></tr>
+        <tr><td class="c"><span class="pos">10</span></td><td><span class="nm">Matheus Gonçalves</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">3</span></td></tr>
+        <tr><td class="c"><span class="pos">11</span></td><td><span class="nm">Gabriel Figueiredo</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="pts">3</span></td></tr>
+        <tr><td class="c"><span class="pos">12</span></td><td><span class="nm">Marilia de Souza Rodrigues</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">2</span></td></tr>
+        <tr><td class="c"><span class="pos">13</span></td><td><span class="nm">Rafael Lima</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">2</span></td></tr>
+        <tr><td class="c"><span class="pos">14</span></td><td><span class="nm">Pamela Alves</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">2</span></td></tr>
+        <tr><td class="c"><span class="pos">15</span></td><td><span class="nm">Gustavo Santiago</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+        <tr><td class="c"><span class="pos">16</span></td><td><span class="nm">Kleisson Vieira</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+        <tr><td class="c"><span class="pos">17</span></td><td><span class="nm">Cyntia Moure</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+        <tr><td class="c"><span class="pos">18</span></td><td><span class="nm">Ana Passos</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+        <tr><td class="c"><span class="pos">19</span></td><td><span class="nm">Natália Ozawa</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+        <tr><td class="c"><span class="pos">20</span></td><td><span class="nm">Silvia</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">0</span></td></tr>
+        <tr><td class="c"><span class="pos">21</span></td><td><span class="nm">Anderson</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">0</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="legend-row">
+      <p>✔ acerto · ✗ erro · Melhor Filme: 2 pts · Demais: 1 pt · Apostador único: +1 pt bônus</p>
+      <p>kobana.com.br</p>
+    </div>
+  </div>
+
+</div><!-- /page2 -->
+
+
+<!-- ══════════════════════════════════════════
+     PÁGINA 3 – PÓDIO + RANKING COMPLETO
+══════════════════════════════════════════ -->
+<div class="page-label">↓ Página 3 — captura de tela aqui</div>
+<div class="card" id="page3">
+
+  <div class="card-header">
+    <img src="KOBANA_LOGO_HOR_NEGATIVO.png" alt="Kobana">
+    <div class="card-header-right">
+      <h1>Bolão do Oscar 2026 — Resultados</h1>
+      <p>98ª Cerimônia do Academy Awards · 15 de março de 2026</p>
+    </div>
+  </div>
+
+  <div class="p3-body">
+
+    <!-- PÓDIO COMPACTO -->
+    <div>
+      <div class="slabel">Pódio</div>
+      <div class="podium-wrap-sm">
+
+        <!-- 2º Lugar -->
+        <div class="p-place p-place-2-sm">
+          <div class="p-photo-ring">
+            <img class="p-photo" src="Objetos/Elson.jpeg" alt="Elson">
+            <div class="p-badge">2</div>
+          </div>
+          <div class="p-info">
+            <div class="p-name">Elson Otake</div>
+            <div class="p-pts"><span>6</span> pts</div>
+            <div class="p-prize">🎬 R$ 105 Netflix / Cinemark</div>
+          </div>
+          <div class="p-block"></div>
+        </div>
+
+        <!-- 1º Lugar -->
+        <div class="p-place p-place-1-sm">
+          <div class="p-photo-ring">
+            <img class="p-photo" src="Objetos/Amanda.jpeg" alt="Amanda">
+            <div class="p-badge">1</div>
+          </div>
+          <div class="p-info">
+            <div class="p-name">Amanda Grego</div>
+            <div class="p-pts"><span>6</span> pts</div>
+            <div class="p-prize">🏆 R$ 175 Netflix / Cinemark</div>
+          </div>
+          <div class="p-block"></div>
+        </div>
+
+        <!-- 3º Lugar -->
+        <div class="p-place p-place-3-sm">
+          <div class="p-photo-ring">
+            <img class="p-photo" src="Objetos/Alan.png" alt="Alan">
+            <div class="p-badge">3</div>
+          </div>
+          <div class="p-info">
+            <div class="p-name">Alan Nascimento</div>
+            <div class="p-pts"><span>5</span> pts</div>
+            <div class="p-prize">sem premiação</div>
+          </div>
+          <div class="p-block"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RANKING 4º EM DIANTE -->
+    <div style="flex:1; overflow:hidden;">
+      <div class="slabel">Ranking — demais participantes</div>
+      <table class="p3-table" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th style="width:46px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">#</th>
+            <th style="font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; border-bottom:1px solid #1a1a1a;">Nome</th>
+            <th class="c" style="width:58px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">Filme</th>
+            <th class="c" style="width:58px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">Direção</th>
+            <th class="c" style="width:48px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">Ator</th>
+            <th class="c" style="width:48px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">Atriz</th>
+            <th class="c" style="width:48px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">Intl.</th>
+            <th class="c" style="width:48px; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#444; padding:6px 10px; text-align:center; border-bottom:1px solid #1a1a1a;">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="c"><span class="pos">4</span></td><td><span class="nm">Pedro Motta</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">4</span></td></tr>
+          <tr><td class="c"><span class="pos">5</span></td><td><span class="nm">Rodrigo Manhães</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">4</span></td></tr>
+          <tr><td class="c"><span class="pos">6</span></td><td><span class="nm">Keila</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">4</span></td></tr>
+          <tr><td class="c"><span class="pos">7</span></td><td><span class="nm">Roberto</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="pts">4</span></td></tr>
+          <tr><td class="c"><span class="pos">8</span></td><td><span class="nm">Kivanio</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">3</span></td></tr>
+          <tr><td class="c"><span class="pos">9</span></td><td><span class="nm">Gabriel Rocha</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">3</span></td></tr>
+          <tr><td class="c"><span class="pos">10</span></td><td><span class="nm">Matheus Gonçalves</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">3</span></td></tr>
+          <tr><td class="c"><span class="pos">11</span></td><td><span class="nm">Gabriel Figueiredo</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="pts">3</span></td></tr>
+          <tr><td class="c"><span class="pos">12</span></td><td><span class="nm">Marilia de Souza Rodrigues</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">2</span></td></tr>
+          <tr><td class="c"><span class="pos">13</span></td><td><span class="nm">Rafael Lima</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">2</span></td></tr>
+          <tr><td class="c"><span class="pos">14</span></td><td><span class="nm">Pamela Alves</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">2</span></td></tr>
+          <tr><td class="c"><span class="pos">15</span></td><td><span class="nm">Gustavo Santiago</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+          <tr><td class="c"><span class="pos">16</span></td><td><span class="nm">Kleisson Vieira</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+          <tr><td class="c"><span class="pos">17</span></td><td><span class="nm">Cyntia Moure</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+          <tr><td class="c"><span class="pos">18</span></td><td><span class="nm">Ana Passos</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+          <tr><td class="c"><span class="pos">19</span></td><td><span class="nm">Natália Ozawa</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="ck">✔</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">1</span></td></tr>
+          <tr><td class="c"><span class="pos">20</span></td><td><span class="nm">Silvia</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">0</span></td></tr>
+          <tr><td class="c"><span class="pos">21</span></td><td><span class="nm">Anderson</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="xx">✗</span></td><td class="c"><span class="pts">0</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="legend-row">
+      <p>✔ acerto · ✗ erro · Melhor Filme: 2 pts · Demais: 1 pt · Apostador único: +1 pt bônus</p>
+      <p>kobana.com.br</p>
+    </div>
+
+  </div>
+
+</div><!-- /page3 -->
+
+</body>
+</html>
